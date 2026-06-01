@@ -127,38 +127,63 @@ docker run --rm -v $(pwd)/output:/workspace graph-visualizer \
 
 open output/output.svg
 
-1. Простой граф (4 вершины)
+## Быстрый запуск со своими данными
+
+### Создайте файл с графом
+
+```bash
+nano my_graph.txt
+Формат файла:
 
 text
-4
-1 2
-0 2 3
-0 1
-1
-2. Ориентированный граф (цикл)
+<количество вершин>
+<список соседей для вершины 0>
+<список соседей для вершины 1>
+...
+Примеры графов
 
-text
-4
-1
-2
-3
-0
-3. Полный граф K5
+Треугольник (3 вершины):
 
-text
-5
-1 2 3 4
-0 2 3 4
-0 1 3 4
-0 1 2 4
-0 1 2 3
-4. Двудольный граф K3,3
+bash
+echo -e "3\n1 2\n0 2\n0 1" > triangle.txt
+./graph_vis -i triangle.txt -o triangle.svg
+Квадрат (4 вершины):
 
-text
-6
-3 4 5
-3 4 5
-3 4 5
-0 1 2
-0 1 2
-0 1 2
+bash
+echo -e "4\n1 3\n0 2\n1 3\n0 2" > square.txt
+./graph_vis -i square.txt -o square.svg
+Звезда (центр с 5 лучами):
+
+bash
+echo -e "6\n1 2 3 4 5\n0\n0\n0\n0\n0" > star.txt
+./graph_vis -i star.txt -o star.svg
+Ориентированный цикл (со стрелками):
+
+bash
+echo -e "4\n1\n2\n3\n0" > cycle.txt
+./graph_vis -i cycle.txt -o cycle.svg -directed
+Полезные параметры
+
+Параметр	Пример	Эффект
+-width 1200		Шире изображение
+-height 900		Выше изображение
+-radius 30		Крупнее вершины
+-vertexcolor "#ff6666"		Красные вершины
+-bgcolor "#1a1a2e"		Тёмный фон
+-directed		Стрелки вместо линий
+Пример с настройками
+
+bash
+./graph_vis -i my_graph.txt -o result.svg \
+    -width 1000 -height 700 \
+    -radius 25 \
+    -vertexcolor "#4a90e2" \
+    -bgcolor "#f0f4f8" \
+    -directed
+Открыть результат
+
+bash
+open result.svg          # macOS
+# или
+xdg-open result.svg     # Linux
+# или просто дважды кликните на файл
