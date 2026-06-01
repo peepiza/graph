@@ -5,6 +5,7 @@ build/
 *.svg
 *.txt
 !input.txt
+!CMakeLists.txt
 .DS_Store
 .vscode/
 *.sh
@@ -16,3 +17,4 @@ CMakeCache.txt
 CMakeFiles/
 Makefile
 *.cmake
+output/
