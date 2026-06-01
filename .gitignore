@@ -76,3 +76,13 @@ __pycache__/
 # Backup files
 *.bak
 *.backup
+
+# Experimental files
+src/http/
+src/httplib.h
+http_server.cpp
+simple_server.cpp
+working_server.cpp
+final_server.cpp
+debug_server.cpp
+*.server
