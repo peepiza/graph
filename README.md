@@ -126,6 +126,7 @@ docker run --rm -v $(pwd)/output:/workspace graph-visualizer \
     -i /workspace/input.txt -o /workspace/output.svg -directed
 
 open output/output.svg
+``` 
 
 ## Быстрый запуск со своими данными
 
