@@ -1,0 +1,78 @@
+# Compiled files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build directories
+build/
+cmake-build-*/
+out/
+bin/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Generated SVG files
+*.svg
+!input.svg
+
+# Test output
+test_output.svg
+output.svg
+scenario*_output.svg
+
+# Docker
+*.log
+*.pid
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+
+# OS files
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Executables from build
+graph_vis
+graph_server
+test_graph
+test_config
+test_layout
+test_renderer
+working_server
+final_server
+minimal_server
+debug_server
+scenario1
+scenario2
+scenario3
+scenario4
+
+# Python
+__pycache__/
+*.pyc
+
+# Backup files
+*.bak
+*.backup
