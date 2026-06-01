@@ -148,23 +148,23 @@ text
 bash
 echo -e "3\n1 2\n0 2\n0 1" > triangle.txt
 ./graph_vis -i triangle.txt -o triangle.svg
-Квадрат (4 вершины):
 
+Квадрат (4 вершины):
 bash
 echo -e "4\n1 3\n0 2\n1 3\n0 2" > square.txt
 ./graph_vis -i square.txt -o square.svg
-Звезда (центр с 5 лучами):
 
+Звезда (центр с 5 лучами):
 bash
 echo -e "6\n1 2 3 4 5\n0\n0\n0\n0\n0" > star.txt
 ./graph_vis -i star.txt -o star.svg
-Ориентированный цикл (со стрелками):
 
+Ориентированный цикл (со стрелками):
 bash
 echo -e "4\n1\n2\n3\n0" > cycle.txt
 ./graph_vis -i cycle.txt -o cycle.svg -directed
-Полезные параметры
 
+Полезные параметры
 Параметр	Пример	Эффект
 -width 1200		Шире изображение
 -height 900		Выше изображение
@@ -172,8 +172,8 @@ echo -e "4\n1\n2\n3\n0" > cycle.txt
 -vertexcolor "#ff6666"		Красные вершины
 -bgcolor "#1a1a2e"		Тёмный фон
 -directed		Стрелки вместо линий
-Пример с настройками
 
+Пример с настройками
 bash
 ./graph_vis -i my_graph.txt -o result.svg \
     -width 1000 -height 700 \
@@ -181,8 +181,8 @@ bash
     -vertexcolor "#4a90e2" \
     -bgcolor "#f0f4f8" \
     -directed
-Открыть результат
 
+Открыть результат
 bash
 open result.svg          # macOS
 # или
