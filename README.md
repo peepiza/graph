@@ -164,23 +164,27 @@ bash
 echo -e "4\n1\n2\n3\n0" > cycle.txt
 ./graph_vis -i cycle.txt -o cycle.svg -directed
 
-Полезные параметры
-Параметр	Пример	Эффект
--width 1200		Шире изображение
--height 900		Выше изображение
--radius 30		Крупнее вершины
--vertexcolor "#ff6666"		Красные вершины
--bgcolor "#1a1a2e"		Тёмный фон
--directed		Стрелки вместо линий
+### Параметры командной строки
 
-Пример с настройками
-bash
+| Параметр | Пример | Эффект |
+|----------|--------|--------|
+| `-width` | `-width 1200` | Шире изображение |
+| `-height` | `-height 900` | Выше изображение |
+| `-radius` | `-radius 30` | Крупнее вершины |
+| `-vertexcolor` | `-vertexcolor "#ff6666"` | Красные вершины |
+| `-edgecolor` | `-edgecolor "#ffffff"` | Белые рёбра |
+| `-bgcolor` | `-bgcolor "#1a1a2e"` | Тёмный фон |
+| `-directed` | `-directed` | Стрелки вместо линий |
+
+### Пример с настройками
+
+```bash
 ./graph_vis -i my_graph.txt -o result.svg \
     -width 1000 -height 700 \
     -radius 25 \
     -vertexcolor "#4a90e2" \
     -bgcolor "#f0f4f8" \
-    -directed
+    -directedц
 
 Открыть результат
 bash
