@@ -126,39 +126,6 @@ docker run --rm -v $(pwd)/output:/workspace graph-visualizer \
     -i /workspace/input.txt -o /workspace/output.svg -directed
 
 open output/output.svg
-🏗️ Паттерны проектирования
-
-Паттерн	Применение в проекте
-Стратегия (Strategy)	Алгоритмы компоновки вершин (в перспективе: круговая, силовая)
-Фабричный метод (Factory Method)	Создание объектов рендереров (SvgRenderer)
-Строитель (Builder)	Конфигурация из аргументов командной строки
-Шаблонный метод (Template Method)	Жизненный цикл приложения
-Диаграмма классов
-
-text
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│     Graph       │────▶│  LayoutEngine   │────▶│  SvgRenderer    │
-├─────────────────┤     ├─────────────────┤     ├─────────────────┤
-│ - vertices_     │     │ - graph_        │     │ - config_       │
-│ - edges_        │     │ - positions_    │     ├─────────────────┤
-│ - directed_     │     ├─────────────────┤     │ + render()      │
-├─────────────────┤     │ + layout()      │     └─────────────────┘
-│ + loadFromFile()│     │ + getPositions()│
-│ + getVertices() │     └─────────────────┘
-│ + getEdges()    │              ▲
-│ + setDirected() │              │
-└─────────────────┘     ┌─────────────────┐
-                        │     Config      │
-                        ├─────────────────┤
-                        │ - width_        │
-                        │ - height_       │
-                        │ - vertexRadius_ │
-                        │ - directed_     │
-                        ├─────────────────┤
-                        │ + loadFromArgs()│
-                        │ + getters       │
-                        └─────────────────┘
- Примеры графов для тестирования
 
 1. Простой граф (4 вершины)
 
