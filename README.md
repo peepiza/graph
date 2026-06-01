@@ -18,30 +18,6 @@
 
 ---
 
-## Структура проекта
-graph/
-├── src/ # Исходный код
-│ ├── Graph.h/.cpp # Класс графа
-│ ├── Config.h/.cpp # Класс конфигурации
-│ ├── LayoutEngine.h/.cpp # Класс компоновки вершин
-│ ├── SvgRenderer.h/.cpp # Класс генерации SVG
-│ ├── Point.h # Структура точки
-│ └── main.cpp # Точка входа
-├── tests/ # Unit-тесты
-│ ├── test_graph.cpp # 7 тестов
-│ ├── test_config.cpp # 6 тестов
-│ ├── test_layout.cpp # 6 тестов
-│ └── test_renderer.cpp # 5 тестов
-├── CMakeLists.txt # Конфигурация сборки
-├── Dockerfile # Конфигурация Docker
-├── .dockerignore # Исключения для Docker
-├── input.txt # Тестовый граф
-└── README.md # Документация
-
-text
-
----
-
 ## Сборка и запуск
 
 ### Локальная сборка
