@@ -1,0 +1,8 @@
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/graph_vis.dir
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/test_graph.dir
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/test_config.dir
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/test_layout.dir
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/test_renderer.dir
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/test.dir
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/edit_cache.dir
+/Users/elizaveta/Desktop/graph/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,9 @@
+build/
+*.o
+*.svg
+!CMakeLists.txt
+.DS_Store
+.vscode/
+*.sh
+scenarios/
+output/
