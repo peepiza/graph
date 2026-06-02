@@ -34,7 +34,7 @@ make
 
 ```bash
 ./graph_vis -i ../input.txt -o output.svg
-open output.svg
+open -a Safari output.svg
 ```
 
 ### Запуск всех тестов (24 теста)
@@ -65,15 +65,15 @@ open output.svg
 ```bash
 # Обычный граф
 ./graph_vis -i input.txt -o graph.svg
-open graph.svg
+open -a Safari graph.svg
 
 # Ориентированный граф
 ./graph_vis -i input.txt -o graph.svg -directed
-open graph.svg
+open -a Safari graph.svg
 
 # С настройками
 ./graph_vis -i input.txt -o graph.svg -width 1000 -height 700 -radius 25 -vertexcolor "#ff8888"
-open graph.svg
+open -a Safari graph.svg
 ```
 
 ---
@@ -159,7 +159,7 @@ cp input.txt output/
 docker run --rm -v $(pwd)/output:/workspace --entrypoint /usr/local/bin/graph_vis graph-visualizer \
     -i /workspace/input.txt -o /workspace/output.svg -directed
 
-open output/output.svg
+open -a Safari output/output.svg
 ```
 
 ---
@@ -182,32 +182,30 @@ nano my_graph.txt
 
 ### Примеры графов
 
-**Треугольник (3 вершины):**
+Треугольник (3 вершины):
+
 ```bash
 echo -e "3\n1 2\n0 2\n0 1" > triangle.txt
 ./graph_vis -i triangle.txt -o triangle.svg
-open triangle.svg
-```
+open -a Safari triangle.svg
+Квадрат (4 вершины):
 
-**Квадрат (4 вершины):**
-```bash
+bash
 echo -e "4\n1 3\n0 2\n1 3\n0 2" > square.txt
 ./graph_vis -i square.txt -o square.svg
-open square.svg
-```
+open -a Safari square.svg
+Звезда (центр с 5 лучами):
 
-**Звезда (центр с 5 лучами):**
-```bash
+bash
 echo -e "6\n1 2 3 4 5\n0\n0\n0\n0\n0" > star.txt
 ./graph_vis -i star.txt -o star.svg
-open star.svg
-```
+open -a Safari star.svg
+Ориентированный цикл (со стрелками):
 
-**Ориентированный цикл (со стрелками):**
-```bash
+bash
 echo -e "4\n1\n2\n3\n0" > cycle.txt
 ./graph_vis -i cycle.txt -o cycle.svg -directed
-open cycle.svg
+open -a Safari cycle.svg
 ```
 
 ---
@@ -234,7 +232,7 @@ open cycle.svg
     -bgcolor "#f0f4f8" \
     -directed
 
-open result.svg
+open -a Safari result.svg
 ```
 
 ---
@@ -242,7 +240,7 @@ open result.svg
 ## Открыть результат
 
 ```bash
-open result.svg          # macOS
+open -a Safari result.svg   # macOS
 xdg-open result.svg      # Linux
 start result.svg         # Windows
 # или просто дважды кликните на файл
