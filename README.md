@@ -243,4 +243,7 @@ open result.svg
 
 ```bash
 open result.svg          # macOS
+xdg-open result.svg      # Linux
+start result.svg         # Windows
+# или просто дважды кликните на файл
 ```
