@@ -138,6 +138,7 @@ open -a Safari graph.svg
 ### Сборка образа
 
 ```bash
+cd ~/Desktop/graph
 docker build -t graph-visualizer .
 ```
 
