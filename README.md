@@ -1,3 +1,7 @@
+```bash
+cd ~/Desktop/graph
+
+cat > README.md << 'EOF'
 # Консольный визуализатор графов
 
 ## Описание проекта
@@ -24,74 +28,100 @@
 
 ```bash
 cd ~/Desktop/graph
+rm -rf build
 mkdir build && cd build
 cmake ..
 make
-Запуск программы
+```
 
-bash
+### Запуск программы
+
+```bash
 ./graph_vis -i ../input.txt -o output.svg
 open output.svg
-Запуск всех тестов (24 теста)
+```
 
-bash
+### Запуск всех тестов (24 теста)
+
+```bash
 ./test_graph && ./test_config && ./test_layout && ./test_renderer
-Аргументы командной строки
+```
 
-Аргумент	Описание	Значение по умолчанию
--i <file>	Входной файл (обязательный)	—
--o <file>	Выходной SVG файл	output.svg
--width <px>	Ширина изображения	800
--height <px>	Высота изображения	600
--radius <px>	Радиус вершин	20
--bgcolor <color>	Цвет фона	#ffffff
--vertexcolor <color>	Цвет заливки вершин	#88aaff
--edgecolor <color>	Цвет рёбер	#333333
--directed	Ориентированный граф	false
--h, --help	Показать справку	—
-Примеры:
+---
 
-bash
+## Аргументы командной строки
+
+| Аргумент | Описание | Значение по умолчанию |
+|----------|----------|----------------------|
+| `-i <file>` | Входной файл (обязательный) | — |
+| `-o <file>` | Выходной SVG файл | `output.svg` |
+| `-width <px>` | Ширина изображения | `800` |
+| `-height <px>` | Высота изображения | `600` |
+| `-radius <px>` | Радиус вершин | `20` |
+| `-bgcolor <color>` | Цвет фона | `#ffffff` |
+| `-vertexcolor <color>` | Цвет заливки вершин | `#88aaff` |
+| `-edgecolor <color>` | Цвет рёбер | `#333333` |
+| `-directed` | Ориентированный граф | `false` |
+| `-h, --help` | Показать справку | — |
+
+### Примеры
+
+```bash
 # Обычный граф
 ./graph_vis -i input.txt -o graph.svg
+open graph.svg
 
 # Ориентированный граф
 ./graph_vis -i input.txt -o graph.svg -directed
+open graph.svg
 
 # С настройками
 ./graph_vis -i input.txt -o graph.svg -width 1000 -height 700 -radius 25 -vertexcolor "#ff8888"
- Формат входного файла
+open graph.svg
+```
 
-Первая строка — количество вершин (N).
+---
+
+## Формат входного файла
+
+Первая строка — количество вершин (N).  
 Следующие N строк — список смежных вершин через пробел.
 
-Пример для графа из 4 вершин:
+**Пример для графа из 4 вершин:**
 
-text
+```
 4
 1 2
 0 2 3
 0 1
 1
-Визуализация:
+```
 
-text
+**Визуализация:**
+
+```
     0
    / \
   1---2
   |
   3
-Результаты тестирования
+```
 
-Всего реализовано 24 unit-теста. Результаты запуска:
+---
 
-Модуль	Тестов пройдено	Тестов не пройдено
-Graph	7	0
-Config	6	0
-LayoutEngine	6	0
-SvgRenderer	5	0
-Итого	24	0
-text
+## Результаты тестирования
+
+Всего реализовано **24 unit-теста**. Результаты запуска:
+
+| Модуль | Тестов пройдено | Тестов не пройдено |
+|--------|-----------------|-------------------|
+| Graph | 7 | 0 |
+| Config | 6 | 0 |
+| LayoutEngine | 6 | 0 |
+| SvgRenderer | 5 | 0 |
+| **Итого** | **24** | **0** |
+
+```
 [==========] 7 tests from GraphTest
 [  PASSED  ] 7 tests.
 
@@ -103,30 +133,40 @@ text
 
 [==========] 5 tests from RendererTest
 [  PASSED  ] 5 tests.
- Контейнеризация (Docker)
+```
 
-Сборка образа
+---
 
-bash
+## Контейнеризация (Docker)
+
+### Сборка образа
+
+```bash
 docker build -t graph-visualizer .
-Запуск тестов в контейнере
+```
 
-bash
-docker run --rm graph-visualizer /usr/local/bin/test_graph
-docker run --rm graph-visualizer /usr/local/bin/test_config
-docker run --rm graph-visualizer /usr/local/bin/test_layout
-docker run --rm graph-visualizer /usr/local/bin/test_renderer
-Запуск программы в контейнере
+### Запуск тестов в контейнере
 
-bash
+```bash
+docker run --rm --entrypoint /usr/local/bin/test_graph graph-visualizer
+docker run --rm --entrypoint /usr/local/bin/test_config graph-visualizer
+docker run --rm --entrypoint /usr/local/bin/test_layout graph-visualizer
+docker run --rm --entrypoint /usr/local/bin/test_renderer graph-visualizer
+```
+
+### Запуск программы в контейнере
+
+```bash
 mkdir -p output
 cp input.txt output/
 
-docker run --rm -v $(pwd)/output:/workspace graph-visualizer \
+docker run --rm -v $(pwd)/output:/workspace --entrypoint /usr/local/bin/graph_vis graph-visualizer \
     -i /workspace/input.txt -o /workspace/output.svg -directed
 
 open output/output.svg
-``` 
+```
+
+---
 
 ## Быстрый запуск со своими данными
 
@@ -134,37 +174,49 @@ open output/output.svg
 
 ```bash
 nano my_graph.txt
-Формат файла:
+```
 
-text
+**Формат файла:**
+```
 <количество вершин>
 <список соседей для вершины 0>
 <список соседей для вершины 1>
 ...
-Примеры графов
+```
 
-Треугольник (3 вершины):
+### Примеры графов
 
-bash
+**Треугольник (3 вершины):**
+```bash
 echo -e "3\n1 2\n0 2\n0 1" > triangle.txt
 ./graph_vis -i triangle.txt -o triangle.svg
+open triangle.svg
+```
 
-Квадрат (4 вершины):
-bash
+**Квадрат (4 вершины):**
+```bash
 echo -e "4\n1 3\n0 2\n1 3\n0 2" > square.txt
 ./graph_vis -i square.txt -o square.svg
+open square.svg
+```
 
-Звезда (центр с 5 лучами):
-bash
+**Звезда (центр с 5 лучами):**
+```bash
 echo -e "6\n1 2 3 4 5\n0\n0\n0\n0\n0" > star.txt
 ./graph_vis -i star.txt -o star.svg
+open star.svg
+```
 
-Ориентированный цикл (со стрелками):
-bash
+**Ориентированный цикл (со стрелками):**
+```bash
 echo -e "4\n1\n2\n3\n0" > cycle.txt
 ./graph_vis -i cycle.txt -o cycle.svg -directed
-``` 
-### Параметры командной строки
+open cycle.svg
+```
+
+---
+
+## Параметры командной строки
 
 | Параметр | Пример | Эффект |
 |----------|--------|--------|
@@ -184,11 +236,15 @@ echo -e "4\n1\n2\n3\n0" > cycle.txt
     -radius 25 \
     -vertexcolor "#4a90e2" \
     -bgcolor "#f0f4f8" \
-    -directedц
+    -directed
 
-Открыть результат
-bash
+open result.svg
+```
+
+---
+
+## Открыть результат
+
+```bash
 open result.svg          # macOS
-# или
-xdg-open result.svg     # Linux
-# или просто дважды кликните на файл
+```
